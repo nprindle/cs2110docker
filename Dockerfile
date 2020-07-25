@@ -3,7 +3,7 @@
 FROM ubuntu:18.04
 
 MAINTAINER Gibran Essa "gibran@gatech.edu"
-ENV REFRESHED_AT 2020-06-28
+ENV REFRESHED_AT 2020-07-25
 ENV CS2110_IMAGE_VERSION 1.0.2
 
 ## Connection ports for controlling the UI:
@@ -67,6 +67,7 @@ ENV PATH=$PATH:/usr/games
 ### Install circuitsim and java
 RUN $INST_SCRIPTS/circuitsimJava.sh
 
+RUN useradd -NM -d $HOME -u 1000 user
 USER 1000
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
